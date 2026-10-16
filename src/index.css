@@ -1,0 +1,50 @@
+/* 1 px de Figma = 1/1024 de la altura de la pantalla.
+   Así el diseño (frame de 1440 x 1024) se escala igual en cualquier monitor. */
+:root {
+  --px: calc(100vh / 1024);
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --px: calc(100dvh / 1024);
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Abhaya Libre', Georgia, serif;
+  background: #000;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: none;
+}
+
+:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
